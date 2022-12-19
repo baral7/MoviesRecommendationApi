@@ -15,18 +15,6 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Admin\Desktop\pratice project 1st\MovieRecommendation\MovieRecommendation
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Admin/Desktop/pratice project 1st/MovieRecommendation/MovieRecommendation/Views/MoviesRecommend/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzUmVjb21tZW5kXENyZWF0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Admin/Desktop/pratice project 1st/MovieRecommendation/MovieRecommendation/Views/MoviesRecommend/GetAllMovie.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzUmVjb21tZW5kXEdldEFsbE1vdmllLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Admin/Desktop/pratice project 1st/MovieRecommendation/MovieRecommendation/Views/MoviesRecommend/GetSingleMovie.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzUmVjb21tZW5kXEdldFNpbmdsZU1vdmllLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Admin/Desktop/pratice project 1st/MovieRecommendation/MovieRecommendation/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

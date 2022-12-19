@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MovieRecommendation.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace MovieRecommendation.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class MoviesRecommendController : Controller
     {
         private readonly MoviesContext _context;
@@ -11,46 +14,54 @@ namespace MovieRecommendation.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        
+
+
+
+
+       /* [HttpGet]
+        [Route("GetAllMovie")]
+        public IEnumerable<Movie> GetAllMovie()
         {
-            return View();
+            var result = _context.Movies.ToList();
+            return result;
+        }*/
+
+         [HttpGet]
+        [Route("GetAllMovie")]
+        public IEnumerable<Movie> GetAllMovie()
+        {
+            var result = _context.Movies.ToList();
+            return result;
         }
+
         [HttpPost]
-            public ActionResult Create(Movie movie)
+        [Route("CreateMovie")]
+        public void Create(Movie movie)
         {
             if (ModelState.IsValid)
             {
                 _context.Movies.Add(movie);
                 _context.SaveChanges();
-                return RedirectToAction("Index");
+               // return RedirectToAction("GetAllMovie");
 
             }
-            return View();
-        }
-        public ActionResult GetAllMovie()
-        {
-            var result = _context.Movies.ToList();
-            return View(result);
+           // return View();
         }
 
-        public ActionResult GetSingleMovie(int id)
+
+        [HttpGet]
+        [Route("GetOneMovie /{id}")]
+        public IEnumerable<Movie> GetSingleMovie(int id)
         {
             var data = _context.Movies.Where(x => x.Id == id).ToList();
-            return View(data);
-        }
-        //update
-     //   public ActionResult updateMovie(int id)
-       // {
-        //    Movie movie = _context.Movies.Find(id);
-
-       // }
-     /*  public Movie edit(int id)
-        {
-            var data = _context.Movies.Where(x=>x.Id ==id).ToList();
             return data;
-        }*/
+        }
 
 
+
+        [HttpGet]
+        [Route("editMovie/{id}")]
         public void edit(int id)
         {
             var movie = _context.Movies.FirstOrDefault(x => x.Id == id);
@@ -60,6 +71,8 @@ namespace MovieRecommendation.Controllers
             }
 
         }
+
+        [HttpPost]
         public ActionResult EditFinal(int id, Movie movie)
         {
             if (ModelState.IsValid)
@@ -77,6 +90,25 @@ namespace MovieRecommendation.Controllers
                 return RedirectToAction("GetAllMovie");
             }
            return View();
+
+        }
+
+        [HttpDelete]
+        [Route("RemoveMovie/{id}")]
+        public ActionResult removeMovie(int id)
+        {
+            var movie = _context.Movies.Find(id);
+           // var movie = _context.Movies.FirstOrDefault(x => x.Id==id);
+            if (movie != null)
+            {
+                _context.Movies.Remove(movie);
+                _context.SaveChanges();
+                return RedirectToAction("GetAllMovie");
+            }
+            else
+            {
+                return RedirectToAction("GetAllMovie");
+            }
 
         }
 
