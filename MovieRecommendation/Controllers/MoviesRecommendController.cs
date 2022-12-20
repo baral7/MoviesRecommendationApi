@@ -37,16 +37,16 @@ namespace MovieRecommendation.Controllers
 
         [HttpPost]
         [Route("CreateMovie")]
-        public void Create(Movie movie)
+        public IActionResult Create(Movie movie)
         {
             if (ModelState.IsValid)
             {
                 _context.Movies.Add(movie);
                 _context.SaveChanges();
-               // return RedirectToAction("GetAllMovie");
+                return RedirectToAction("GetAllMovie");
 
             }
-           // return View();
+            return View();
         }
 
 
